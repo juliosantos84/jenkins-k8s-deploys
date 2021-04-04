@@ -2,12 +2,12 @@ pipeline {
     agent none
     stages {
         stage('Deploy') {
-            // agent {
-            //     docker {
-            //         image 'bitnami/kubectl:latest'
-            //         args '-it --entrypoint=/bin/bash'
-            //     }
-            // }
+            agent {
+                docker {
+                    image 'bitnami/kubectl:latest'
+                    args '-it --entrypoint=/bin/bash'
+                }
+            }
             environment {
                 KUBECONFIG = credentials('jenkins-kubeconfig')
             }
