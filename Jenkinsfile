@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Deploy') {
             agent {
-                docker {
-                    image 'bitnami/kubectl:latest'
-                    args '-t --entrypoint='
+                dockerfile {
+                    filename 'Dockerfile.build'
+                    // image 'bitnami/kubectl:latest'
                 }
             }
             environment {

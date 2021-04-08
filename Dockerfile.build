@@ -1,0 +1,7 @@
+FROM bitnami/kubectl:latest AS kubeBase
+
+FROM debian:latest as debian
+
+COPY --from=kubeBase /opt/bitnami/kubectl/bin/kubectl /opt/bitnami/kubectl/bin/kubectl
+
+ENV PATH=/opt/bitnami/kubectl/bin:${PATH}
