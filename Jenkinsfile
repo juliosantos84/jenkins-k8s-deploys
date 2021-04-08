@@ -5,7 +5,6 @@ pipeline {
             agent {
                 dockerfile {
                     filename 'Dockerfile.build'
-                    // image 'bitnami/kubectl:latest'
                 }
             }
             environment {
